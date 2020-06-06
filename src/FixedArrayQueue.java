@@ -1,11 +1,12 @@
-public class CircularArrayQueue<E> implements Queue<E> {
+public class FixedArrayQueue<E> implements Queue<E> {
 
-    private final E[] data;     // generic array used for storage
-    private int front;          // index of the front element
-    private int rear;           // index of the last element
-    private static int size;    // current number of elements
 
-    public CircularArrayQueue(int capacity) {
+    private E[] data;   // general-type array for storing elements
+    private int front;  // index of the first element, initially -1
+    private int rear;   // index of the last element, initially -1
+    private int size;   // number of filled cells in the array
+
+    public FixedArrayQueue(int capacity) {
         front = -1;
         rear = -1;
         size = 0;
@@ -22,8 +23,9 @@ public class CircularArrayQueue<E> implements Queue<E> {
         return (size == 0);
     }
 
+    // Note how 'isFull' differs between Fixed and Circular Queue
     public boolean isFull() {
-        return (size == data.length);
+        return (rear + 1 == data.length);
     }
 
     @Override
@@ -37,11 +39,12 @@ public class CircularArrayQueue<E> implements Queue<E> {
         return data[front];
     }
 
+    /* Adding in a queue happens at the rear of the array */
     @Override
     public void enqueue(E e) {
 
         if (isFull()) {
-            System.out.println("Cannot enqueue " + e + ". Queue is full!");
+            System.out.println("Cannot add " + e + ". Queue is full!");
             return;
         }
 
@@ -53,13 +56,15 @@ public class CircularArrayQueue<E> implements Queue<E> {
             return;
         }
 
-        /* Adding in queue done at the rear, so find the rear */
-        rear = (front + size) % data.length;
+        // Move the rear one step forward
+        rear++;
         data[rear] = e;
+        // Can be simplified to: data[++rear] = e;
         size++;
 
     }
 
+    /* Deletion in a queue happens at the front of the array */
     @Override
     public E dequeue() {
 
@@ -67,18 +72,20 @@ public class CircularArrayQueue<E> implements Queue<E> {
             System.out.println("Nothing to remove. Queue is empty!");
             return null;
         }
-        // Store front to return it
+
+        // Store front's data to return it
         E answer = data[front];
 
-        // Dereference to help garbage collection
-        data[front] = null;
+        // Move every element one step backward
+        for (int i = 0; i < size - 1; i++) // size-1: no need to reach the last element
+            data[i] = data[i + 1];
 
-        // Move front one step forward
-        front = (front + 1) % data.length;
         size--;
 
-        return answer;
+        // Move the rear one step backward
+        rear--;
 
+        return answer;
     }
 
     @Override
@@ -89,14 +96,10 @@ public class CircularArrayQueue<E> implements Queue<E> {
             return;
         }
 
-        /* To traverse the queue:
-         * 1- Start from the front
-         * 2- Move 'size' times
-         * - modular used because queue is circular
-         * */
         System.out.print("Queue -> ");
+        // Always start from 0, because the front is always 0 -> FixedArrayQueue
         for (int i = 0; i < size; i++)
-            System.out.print(data[(front + i) % data.length] + " ");
+            System.out.print(data[i] + " ");
 
     }
 
