@@ -7,10 +7,7 @@ public class Power {
         for (int i = 1; i <= Math.abs(powerRaised); i++)
             pow *= base;
 
-        if (powerRaised >= 0)
-            return pow;
-        else
-            return 1 / pow;
+        return (powerRaised >= 0) ? pow : 1/ pow;
     }
 
     public static double recursivePowering(double base, int powerRaised) {
