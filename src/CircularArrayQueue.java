@@ -92,7 +92,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
         /* To traverse the queue:
          * 1- Start from the front
          * 2- Move 'size' times
-         * - modular used because queue is circular
+         * - modulus used because queue is circular
          * */
         System.out.print("Queue -> ");
         for (int i = 0; i < size; i++)
