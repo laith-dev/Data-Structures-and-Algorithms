@@ -3,7 +3,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
     private final E[] data;     // generic array used for storage
     private int front;          // index of the front element
     private int rear;           // index of the last element
-    private static int size;    // current number of elements
+    private static int size;    // number of filles cells in the array
 
     public CircularArrayQueue(int capacity) {
         front = -1;
@@ -92,7 +92,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
         /* To traverse the queue:
          * 1- Start from the front
          * 2- Move 'size' times
-         * - modular used because queue is circular
+         * - modulus used because queue is circular
          * */
         System.out.print("Queue -> ");
         for (int i = 0; i < size; i++)
