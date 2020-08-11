@@ -3,8 +3,7 @@ public class SinglyLinkedListStack<E> implements Stack<E> {
     /*
      * In SLLS, each node points (has a reference) to the previous node (the node below it).
      * */
-
-
+    
     private class Node {
 
         private E data;
