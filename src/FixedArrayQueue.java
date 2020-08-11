@@ -1,6 +1,5 @@
 public class FixedArrayQueue<E> implements Queue<E> {
 
-
     private E[] data;   // general-type array for storing elements
     private int front;  // index of the first element, initially -1
     private int rear;   // index of the last element, initially -1
@@ -32,19 +31,21 @@ public class FixedArrayQueue<E> implements Queue<E> {
     public E peek() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to peek. Queue is empty!");
             return null;
         }
 
         return data[front];
     }
 
-    /* Adding in a queue happens at the rear of the array */
+    /**
+     * Adds a new element at the rear of the queue.
+     *
+     * @param e is the element to be added.
+     */
     @Override
     public void enqueue(E e) {
 
         if (isFull()) {
-            System.out.println("Cannot add " + e + ". Queue is full!");
             return;
         }
 
@@ -60,24 +61,28 @@ public class FixedArrayQueue<E> implements Queue<E> {
         rear++;
         data[rear] = e;
         // Can be simplified to: data[++rear] = e;
+
         size++;
 
     }
 
-    /* Deletion in a queue happens at the front of the array */
+    /**
+     * Removes the first element of the queue and returns it.
+     *
+     * @return the deleted element.
+     */
     @Override
     public E dequeue() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. Queue is empty!");
             return null;
         }
 
         // Store front's data to return it
         E answer = data[front];
 
-        // Move every element one step backward
-        for (int i = 0; i < size - 1; i++) // size-1: no need to reach the last element
+        // Move every element one step forward
+        for (int i = 0; i < size - 1; i++) // size-1 because no need to reach the last element
             data[i] = data[i + 1];
 
         size--;
@@ -92,7 +97,6 @@ public class FixedArrayQueue<E> implements Queue<E> {
     public void printQueue() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to print. Queue is empty!");
             return;
         }
 

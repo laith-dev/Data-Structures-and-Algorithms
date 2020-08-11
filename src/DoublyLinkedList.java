@@ -125,7 +125,6 @@ public class DoublyLinkedList<E> implements List<E> {
     public E removeFirst() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. List is empty!");
             return null;
         }
 
@@ -144,7 +143,6 @@ public class DoublyLinkedList<E> implements List<E> {
     public E removeLast() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. List is empty!");
             return null;
         }
 
@@ -178,7 +176,6 @@ public class DoublyLinkedList<E> implements List<E> {
     public void printList() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to print. List is empty!");
             return;
         }
 

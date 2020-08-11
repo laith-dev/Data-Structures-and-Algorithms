@@ -3,7 +3,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
     private final E[] data;     // generic array used for storage
     private int front;          // index of the front element
     private int rear;           // index of the last element
-    private static int size;    // number of filles cells in the array
+    private static int size;    // number of filled cells in the array
 
     public CircularArrayQueue(int capacity) {
         front = -1;
@@ -30,7 +30,6 @@ public class CircularArrayQueue<E> implements Queue<E> {
     public E peek() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to peek. Queue is empty!");
             return null;
         }
 
@@ -41,7 +40,6 @@ public class CircularArrayQueue<E> implements Queue<E> {
     public void enqueue(E e) {
 
         if (isFull()) {
-            System.out.println("Cannot enqueue " + e + ". Queue is full!");
             return;
         }
 
@@ -64,7 +62,6 @@ public class CircularArrayQueue<E> implements Queue<E> {
     public E dequeue() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. Queue is empty!");
             return null;
         }
         // Store front to return it
@@ -85,7 +82,6 @@ public class CircularArrayQueue<E> implements Queue<E> {
     public void printQueue() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to print. Queue is empty!");
             return;
         }
 
@@ -93,7 +89,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
          * 1- Start from the front
          * 2- Move 'size' times
          * - modulus used because queue is circular
-         * */
+         */
         System.out.print("Queue -> ");
         for (int i = 0; i < size; i++)
             System.out.print(data[(front + i) % data.length] + " ");

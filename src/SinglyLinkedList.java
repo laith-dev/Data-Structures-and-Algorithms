@@ -1,8 +1,5 @@
 public class SinglyLinkedList<E> implements List<E> {
 
-    private Node head;
-    private static int size;
-
     private class Node {
         E data;
         Node next;
@@ -15,6 +12,9 @@ public class SinglyLinkedList<E> implements List<E> {
         }
 
     } // end class Node
+
+    private Node head;
+    private static int size;
 
     public SinglyLinkedList() {
         head = null;
@@ -36,7 +36,7 @@ public class SinglyLinkedList<E> implements List<E> {
 
         Node newNode = new Node(data);
 
-        // Let the newNode point to the head then move head to the newNode
+        // Let the newNode point to the head then move the head to the newNode
         newNode.next = head;
         head = newNode;
 
@@ -67,7 +67,6 @@ public class SinglyLinkedList<E> implements List<E> {
     public E removeFirst() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. List is empty!");
             return null;
         }
 
@@ -87,7 +86,6 @@ public class SinglyLinkedList<E> implements List<E> {
     public E removeLast() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to remove. List is empty!");
             return null;
         }
 
@@ -110,6 +108,7 @@ public class SinglyLinkedList<E> implements List<E> {
         // Store tail's data to return it
         E answer = temp.next.data;
 
+        // Dereference the tail
         temp.next = null;
 
         size--;
@@ -127,7 +126,6 @@ public class SinglyLinkedList<E> implements List<E> {
     public void printList() {
 
         if (isEmpty()) {
-            System.out.println("Nothing to print. List is empty!");
             return;
         }
 
