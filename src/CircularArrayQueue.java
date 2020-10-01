@@ -12,10 +12,15 @@ public class CircularArrayQueue<E> implements Queue<E> {
         data = (E[]) new Object[capacity];
     }
 
+    /**
+     * Keep track of elements count in the queue.
+     * @return the size of the queue.
+     */
     @Override
     public int size() {
         return size;
     }
+
 
     @Override
     public boolean isEmpty() {

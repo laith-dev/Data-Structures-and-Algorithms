@@ -1,21 +1,22 @@
 public class Search {
 
-    public static boolean linearSearch(int[] ints, int key) {
-
-        for (int i : ints)
-            if (key == i)
-                return true;
-
-        return false;
+    public static int linearSearch(int[] ints, int key) {
+        for (int i = 0; i < ints.length; i++) {
+            if (ints[i] == key) {
+                return i;
+            }
+        }
+        return -1;
     }
 
-    public static boolean linearSearch(String[] strings, String key) {
+    public static int linearSearch(String[] strings, String key) {
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i].equals(key)) {
+                return i;
+            }
+        }
 
-        for (String s : strings)
-            if (key.equals(s))
-                return true;
-
-        return false;
+        return -1;
     }
 
     /*
@@ -26,7 +27,7 @@ public class Search {
      *       Worst:   O(log n)
      *
      *   - Unsuccessful:
-     *  O(log n) best, average & worst cases
+     *      O(log n) best, average & worst cases
      *
      */
     public static boolean binarySearch(int[] arr, int key) {
