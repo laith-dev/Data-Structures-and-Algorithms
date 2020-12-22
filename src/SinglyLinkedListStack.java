@@ -39,7 +39,6 @@ public class SinglyLinkedListStack<E> implements Stack<E> {
 
     @Override
     public void push(E data) {
-
         if (isEmpty()) {
             top = new Node(data);
             return;
@@ -57,7 +56,6 @@ public class SinglyLinkedListStack<E> implements Stack<E> {
 
         // Move top to the newNode
         top = newNode;
-
     }
 
     @Override
@@ -85,12 +83,11 @@ public class SinglyLinkedListStack<E> implements Stack<E> {
 
     @Override
     public boolean isEmpty() {
-        return (size == 0);
+        return size == 0;
     }
 
     @Override
     public void printStack() {
-
         if (isEmpty()) {
             return;
         }

@@ -8,8 +8,7 @@ public class Miscellaneous {
      */
     public static int factorial(int n) {
         if (n < 0) {
-            System.out.println("Factorial of negative numbers is not supported.");
-            return -1;
+            throw new NumberFormatException("No factorial for negative number " + n);
         } else if (n == 1 || n == 0) {
             return 1;
         } else {
