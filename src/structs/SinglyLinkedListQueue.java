@@ -1,3 +1,5 @@
+package structs;
+
 public class SinglyLinkedListQueue<E> implements Queue {
 
     private class Node {

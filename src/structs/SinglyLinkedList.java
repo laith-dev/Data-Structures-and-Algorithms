@@ -1,7 +1,9 @@
+package structs;
+
 public class SinglyLinkedList<E> implements List<E> {
 
     private class Node {
-        E data;
+        private final E data;
         Node next;
 
         Node(E data) {
@@ -10,7 +12,6 @@ public class SinglyLinkedList<E> implements List<E> {
 
             size++;
         }
-
     }
 
     private Node head;
@@ -42,7 +43,6 @@ public class SinglyLinkedList<E> implements List<E> {
 
     @Override
     public void addLast(E data) {
-
         if (isEmpty()) {
             head = new Node(data);
             return;
@@ -75,7 +75,6 @@ public class SinglyLinkedList<E> implements List<E> {
         size--;
 
         return answer;
-
     }
 
     @Override
@@ -122,14 +121,11 @@ public class SinglyLinkedList<E> implements List<E> {
             return;
         }
 
-        System.out.print("List ->  ");
+        System.out.print("structs.List ->  ");
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + "  ");
             temp = temp.next;
         }
     }
-
 }
-
-

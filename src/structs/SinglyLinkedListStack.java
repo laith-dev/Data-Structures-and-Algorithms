@@ -1,12 +1,13 @@
+package structs;
+
 public class SinglyLinkedListStack<E> implements Stack<E> {
 
     /*
-     * In SLLS, each node points (has a reference) to the previous node (the node below it).
+     * In structs.SinglyLinkedListStack, each node points (has a reference) to the previous node (the node below it).
      * */
     
     private class Node {
-
-        private E data;
+        private final E data;
         private Node prev;
 
         public Node(E data) {
@@ -92,7 +93,7 @@ public class SinglyLinkedListStack<E> implements Stack<E> {
             return;
         }
 
-        System.out.println("Stack ->");
+        System.out.println("structs.Stack ->");
         Node temp = top;
         while (temp != null) {
             System.out.println("\t\t" + temp.getData());

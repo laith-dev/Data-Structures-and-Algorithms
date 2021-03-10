@@ -1,3 +1,5 @@
+package structs;
+
 public class CircularArrayQueue<E> implements Queue<E> {
 
     private final E[] data;     // generic array used for storage
@@ -95,7 +97,7 @@ public class CircularArrayQueue<E> implements Queue<E> {
          * 2- Move 'size' times
          * - modulus used because queue is circular
          */
-        System.out.print("Queue -> ");
+        System.out.print("structs.Queue -> ");
         for (int i = 0; i < size; i++)
             System.out.print(data[(front + i) % data.length] + " ");
 

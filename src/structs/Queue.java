@@ -1,3 +1,5 @@
+package structs;
+
 public interface Queue<E> {
 
     int size();

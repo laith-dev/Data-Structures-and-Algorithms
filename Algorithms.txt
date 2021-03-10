@@ -1,10 +1,10 @@
 - Algorithms implemented in this project
 
-1- Search:
+1- algorithms.Search:
     1.1 LinearSearch
     1.2 BinarySearch
 
-2- Sort:
+2- algorithms.Sort:
     2.1 SelectionSort
     2.2 InsertionSort
     2.3 BubbleSort

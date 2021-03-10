@@ -1,3 +1,5 @@
+package structs;
+
 public class FixedArrayQueue<E> implements Queue<E> {
 
     private E[] data;   // general-type array for storing elements
@@ -22,7 +24,7 @@ public class FixedArrayQueue<E> implements Queue<E> {
         return (size == 0);
     }
 
-    // Note how 'isFull' differs between Fixed and Circular Queue
+    // Note how 'isFull' differs between Fixed and Circular structs.Queue
     public boolean isFull() {
         return (rear + 1 == data.length);
     }
@@ -100,8 +102,8 @@ public class FixedArrayQueue<E> implements Queue<E> {
             return;
         }
 
-        System.out.print("Queue -> ");
-        // Always start from 0, because the front is always 0 -> FixedArrayQueue
+        System.out.print("structs.Queue -> ");
+        // Always start from 0, because the front is always 0 -> structs.FixedArrayQueue
         for (int i = 0; i < size; i++)
             System.out.print(data[i] + " ");
 

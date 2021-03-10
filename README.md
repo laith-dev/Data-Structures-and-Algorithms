@@ -1,4 +1,4 @@
-Implementaion of common data structures and algorithms in Java.
+Implementation of common data structures and algorithms in Java.
 
 For a complete list of implemented data structures and algorithms, see:
   - DataStructures.txt

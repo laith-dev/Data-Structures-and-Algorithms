@@ -1,3 +1,5 @@
+package structs;
+
 public interface List<E> {
 
     void addFirst(E data);

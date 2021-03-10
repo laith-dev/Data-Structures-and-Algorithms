@@ -1,3 +1,5 @@
+package structs;
+
 public class DoublyLinkedList<E> implements List<E> {
 
     /* In a DLL, the head doesn't contain any data
@@ -14,7 +16,7 @@ public class DoublyLinkedList<E> implements List<E> {
 
     private class Node {
 
-        E data;
+        private final E data;
         private Node prev;
         private Node next;
 
@@ -55,12 +57,11 @@ public class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public boolean isEmpty() {
-        return (size == 0);
+        return size == 0;
     }
 
     @Override
     public void addFirst(E data) {
-
         if (isEmpty()) {
             /*
              * 1- Create a new Node and let it point (as prev) to the head
@@ -84,12 +85,10 @@ public class DoublyLinkedList<E> implements List<E> {
 
         head.getNext().setPrev(newNode);
         head.setNext(newNode);
-
     }
 
     @Override
     public void addLast(E data) {
-
         if (isEmpty()) {
             /*
              * 1- Create a new Node and let it point (as prev) to the head
@@ -123,12 +122,11 @@ public class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public E removeFirst() {
-
         if (isEmpty()) {
             return null;
         }
 
-        // Store the peek Node's data to return it
+        // Store the first Node's data to return it
         E answer = head.getNext().getData();
 
         // Let the head point (as next) to the second Node
@@ -136,12 +134,10 @@ public class DoublyLinkedList<E> implements List<E> {
         size--;
 
         return answer;
-
     }
 
     @Override
     public E removeLast() {
-
         if (isEmpty()) {
             return null;
         }
@@ -159,8 +155,9 @@ public class DoublyLinkedList<E> implements List<E> {
 
         // Find the Node right before the last one and let it point (as next) to null
         Node temp = head.getNext();
-        while (temp.getNext().getNext() != null)
+        while (temp.getNext().getNext() != null) {
             temp = temp.getNext();
+        }
 
         // temp now is the node right before the last one
         E answer = temp.getNext().getData();
@@ -169,25 +166,22 @@ public class DoublyLinkedList<E> implements List<E> {
         size--;
 
         return answer;
-
     }
 
     @Override
     public void printList() {
-
         if (isEmpty()) {
             return;
         }
 
-        System.out.print("List -> ");
+        System.out.print("structs.List -> ");
 
-        // Keep moving until you are on a node whose next is null
+        // Keep walking until you are on a node whose next is null.
         Node temp = head.getNext();
         while (temp != null) {
-            System.out.print(temp.data + "  ");
+            System.out.print(temp.data + " ");
             temp = temp.getNext();
         }
-
     }
 
 }

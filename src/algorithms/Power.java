@@ -1,3 +1,5 @@
+package algorithms;
+
 public class Power {
 
     public static double linearPowering(double base, int power) {

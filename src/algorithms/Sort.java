@@ -1,3 +1,5 @@
+package algorithms;
+
 public class Sort {
 
     public static void selectionSort(int[] arr) {
@@ -100,7 +102,7 @@ public class Sort {
 
     }
 
-} // end class Sort
+} // end class algorithms.Sort
 
 
 
